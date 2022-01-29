@@ -1,5 +1,4 @@
-public class ColorEntity
-{
+public class ColorEntity {
   // rgb の r 成分
   public float R {
     get;

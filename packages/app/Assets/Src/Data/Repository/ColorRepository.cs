@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+public class ColorRepository {
+  // DataStore
+  private ColorDataStore _dataStore;
 
-public class ColorRepository : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+  // コンストラクタ
+  public ColorRepository() {
+    _dataStore = new ColorDataStore();
+  }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  // ロード
+  public ColorEntity Load() {
+    return _dataStore.Load();
+  }
+
+  // 保存
+  public void Save(ColorEntity entity) {
+    _dataStore.Save(entity);
+  }
 }

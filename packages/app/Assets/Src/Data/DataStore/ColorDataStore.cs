@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class ColorDataStore
-{
+public class ColorDataStore {
   // Entity
   private ColorEntity _entity;
 
