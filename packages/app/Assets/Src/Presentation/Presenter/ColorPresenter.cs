@@ -8,27 +8,22 @@ public class ColorPresenter : MonoBehaviour {
   private ColorUseCase _useCase;
 
   private void onRedSliderValueChanged(float value) {
-    Debug.Log("onRedSliderValueChanged: " + value);
     _useCase.SetRed(value);
   }
 
   private void onGreenSliderValueChanged(float value) {
-    Debug.Log("onGreenSliderValueChanged: " + value);
     _useCase.SetGreen(value);
   }
 
   private void onBlueSliderValueChanged(float value) {
-    Debug.Log("onBlueSliderValueChanged: " + value);
     _useCase.SetBlue(value);
   }
 
   private void onSaveButtonClicked() {
-    Debug.Log("onSaveButtonClicked");
     _useCase.Save();
   }
 
   private void onResetButtonClicked() {
-    Debug.Log("onResetButtonClicked");
     _useCase.Reset();
   }
 
