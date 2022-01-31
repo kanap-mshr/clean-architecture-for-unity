@@ -7,14 +7,46 @@ public class ColorPresenter : MonoBehaviour {
 
   private ColorUseCase _useCase;
 
+  private void onRedSliderValueChanged(float value) {
+    _useCase.SetRed(value);
+  }
+
+  private void onGreenSliderValueChanged(float value) {
+    _useCase.SetGreen(value);
+  }
+
+  private void onBlueSliderValueChanged(float value) {
+    _useCase.SetBlue(value);
+  }
+
   private void onSaveButtonClicked() {
     _useCase.Save();
   }
 
+  private void onResetButtonClicked() {
+    _useCase.Reset();
+  }
+
   // イベントの紐付け
   private void SetEvents() {
+    _view.RedSlider.OnValueChangedAsObservable()
+      .Subscribe(onRedSliderValueChanged)
+      .AddTo(this);
+
+    _view.GreenSlider.OnValueChangedAsObservable()
+      .Subscribe(onGreenSliderValueChanged)
+      .AddTo(this);
+
+    _view.BlueSlider.OnValueChangedAsObservable()
+      .Subscribe(onBlueSliderValueChanged)
+      .AddTo(this);
+
     _view.SaveButton.OnClickAsObservable()
       .Subscribe(_ => onSaveButtonClicked())
+      .AddTo(this);
+
+    _view.ResetButton.OnClickAsObservable()
+      .Subscribe(_ => onResetButtonClicked())
       .AddTo(this);
   }
 
